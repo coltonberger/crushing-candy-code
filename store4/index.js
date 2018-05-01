@@ -4,23 +4,42 @@ var store4 = require('./store4-data.js');
 
 // Return the cost of 'Dark Chocolate Crunchies' from store4
 function accessesingData1() {
-
+  return store4['Dark Chocolate Crunchies']['cost'];
 }
 
 // Return the total number of 'Berry Bites' sold by store4
 function accessesingData2() {
-
+  return store4['Berry Bites']['sold on'].length;
 }
 
 // ^^^^^^^^^^^^ LOOPING OVER DATA ^^^^^^^^^^^^
 // Create a loop to return an array of the candy names that cost more than $2.00
 function loopingData1() {
+  let greatThanTwoDollars = [];
 
+  for (let candy in store4){
+    let candyCost = store4[candy]["cost"];
+    if (candyCost > 2) {
+      greatThanTwoDollars.push(candy);
+    }
+  }
+
+  return greatThanTwoDollars;
 }
 
 // Create a loop to return an object that has the candy name as the key and the cost as the value
 function loopingData2() {
+  let obj = {};
 
+  for (let candy in store4){
+    let candyCost = store4[candy]["cost"];
+    let candyName = candy;
+
+    obj[candy] = candyCost;
+  }
+
+
+  return obj;
 }
 
 // ^^^^^^^^^^^^ CHALLENGE ^^^^^^^^^^^^
